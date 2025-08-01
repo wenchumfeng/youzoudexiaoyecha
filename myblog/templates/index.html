@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游走的小夜叉的博客</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="profile-container">
+                <img src="{{ url_for('static', filename='tou_xiang.jpg') }}" alt="我的头像" class="profile-picture">
+            </div>
+            <h1>游走的小夜叉的博客</h1>
+        </div>
+        <nav class="categories">
+            <ul>
+                <li><a href="{{ url_for('index') }}" {% if not current_category %}class="active"{% endif %}>全部</a></li>
+                {% for category in categories %}
+                    <li><a href="{{ url_for('category', category=category) }}" {% if current_category == category %}class="active"{% endif %}>{{ category }}</a></li>
+                {% endfor %}
+                <li><a href="{{ url_for('about') }}">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% if posts %}
+            <ul class="post-list">
+                {% for post in posts %}
+                    <li class="post-item">
+                        <h2><a href="{{ url_for('post', filename=post.filename) }}">{{ post.title }}</a></h2>
+                        <p class="post-date">{{ post.date }} | <span class="post-category">{{ post.category }}</span></p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>暂无博客文章，请在 posts 目录中添加 .md 文件。</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; {{ datetime.utcnow().year }} 游走的小夜叉的博客</p>
+    </footer>
+</body>
+</html>

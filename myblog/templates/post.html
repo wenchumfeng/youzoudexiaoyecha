@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - 游走的小夜叉的博客</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('index') }}">游走的小夜叉的博客</a></h1>
+    </header>
+    <main>
+        <article class="post">
+            <h2>{{ title }}</h2>
+            <p class="post-meta">分类: <span class="post-category">{{ category }}</span></p>
+            <div class="post-content">
+                {{ content|safe }}
+            </div>
+        </article>
+        <a href="{{ url_for('index') }}" class="back-link">返回首页</a>
+
+        <!-- 留言表单 -->
+        <div class="comment-form">
+            <h3>发表留言</h3>
+            <form method="post">
+                <div class="form-group">
+                    <label for="name">姓名:</label>
+                    <input type="text" id="name" name="name" placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="content">留言内容:</label>
+                    <textarea id="content" name="content" rows="4" placeholder="请输入您的留言"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交留言</button>
+            </form>
+        </div>
+
+        <!-- 留言列表 -->
+        {% if comments %}
+            <div class="comments">
+                <h3>留言列表 ({{ comments|length }})</h3>
+                <ul class="comment-list">
+                    {% for comment in comments %}
+                        <li class="comment-item">
+                            <div class="comment-meta">
+                                <span class="comment-name">{{ comment.name }}</span>
+                                <span class="comment-time">{{ comment.time }}</span>
+                            </div>
+                            <div class="comment-content">{{ comment.content }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; {{ datetime.utcnow().year }} 游走的小夜叉的博客</p>
+    </footer>
+</body>
+</html>
