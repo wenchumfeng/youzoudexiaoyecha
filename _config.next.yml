@@ -100,11 +100,11 @@ mathjax:
 #   anonymize_ip: true
 
 # utterances
-# utterances:
-#   repo: yourname/yourname.github.io
-#   issue_term: pathname
-#   label: Comment
-#   theme: github-light
+utterances:
+  repo: your-github-username/your-blog-repo
+  issue_term: pathname
+  label: Comment
+  theme: github-light
 
 # Disqus
 # disqus:
@@ -169,5 +169,5 @@ mathjax:
 #   - /css/custom.css
 
 # Custom JS
-# custom_js:
-#   - /js/custom.js
+custom_js:
+  - /js/utterances.js

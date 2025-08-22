@@ -49,7 +49,11 @@
 ## 自动部署
 GitHub Actions工作流已配置（.github/workflows/deploy.yml），每次推送到main分支将自动触发部署。
 
+## 博客留言功能
+本博客使用utterances评论系统，基于GitHub Issues实现。完成部署后，请参考[COMMENTS_GUIDE.md](COMMENTS_GUIDE.md)配置留言功能。
+
 ## 注意事项
 1. 确保在_config.yml中设置正确的url（https://your-project-name.pages.dev）
 2. 替换部署配置中的your-project-name为你的实际项目名称
 3. 首次部署可能需要手动触发GitHub Actions工作流
+4. 留言功能需要配置GitHub仓库信息并安装utterances应用，详情见COMMENTS_GUIDE.md
