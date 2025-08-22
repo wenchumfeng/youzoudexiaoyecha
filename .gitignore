@@ -1,0 +1,28 @@
+# 操作系统相关
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*~n
+
+# 编辑器相关
+.idea/
+.vscode/
+*.suo
+*.ntvs*.*
+*.njsproj
+*.sln
+
+# 依赖和构建产物
+node_modules/
+public/
+.deploy_git/
+package-lock.json
+
+# Hexo 生成的文件
+db.json
+*.log
+
+# 自定义
+*.bak
