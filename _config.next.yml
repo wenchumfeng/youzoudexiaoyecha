@@ -100,11 +100,11 @@ mathjax:
 #   anonymize_ip: true
 
 # utterances
-utterances:
-  repo: your-github-username/your-blog-repo
-  issue_term: pathname
-  label: Comment
-  theme: github-light
+# utterances:
+#   repo: your-github-username/your-blog-repo
+#   issue_term: pathname
+#   label: Comment
+#   theme: github-light
 
 # Disqus
 # disqus:
@@ -113,17 +113,17 @@ utterances:
 #   lazyload: false
 #   placeholder: Load comments...
 
-# Valine
-# valine:
-#   appid: your-app-id
-#   appkey: your-app-key
-#   placeholder: Say something...
-#   avatar: monsterid
-#   meta: [nick,mail,link]
-#   pageSize: 10
-#   lang: en
-#   visitor: false
-#   highlight: true
+# Valine - 支持匿名评论的轻量级评论系统
+valine:
+  appid: your-leancloud-appid  # 请替换为你的LeanCloud App ID
+  appkey: your-leancloud-appkey  # 请替换为你的LeanCloud App Key
+  placeholder: 说点什么吧...
+  avatar: monsterid  # 评论者头像样式
+  meta: [nick]  # 只显示昵称
+  pageSize: 10
+  lang: zh-CN  # 设置为中文
+  visitor: true  # 显示文章阅读量
+  highlight: true
 
 # Markdown
 # markdown:
@@ -169,5 +169,5 @@ utterances:
 #   - /css/custom.css
 
 # Custom JS
-custom_js:
-  - /js/utterances.js
+# custom_js:
+#   - /js/custom.js
